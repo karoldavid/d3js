@@ -2,18 +2,49 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>D3 Test</title>
-        <link rel="stylesheet" href="css/style.css">
+        <!--Import Google Icon Font-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+         <link rel="stylesheet" href="css/style.css">
         <script type="text/javascript" src="d3/d3.v3.js"></script>
     </head>
     <body>
-        <script type="text/javascript">
-            //var dataset = [ 5, 10, 15, 20, 25 ];
-            var dataset = [ 25, 7, 5, 26, 11, 8, 25, 14, 23, 19,
-                14, 11, 22, 29, 11, 13, 12, 17, 18, 10,
-                24, 18, 25, 9, 3 ];
 
-        /*    d3.select("body").selectAll("p")
+        <div class="row">
+            <div class="col s12 m9 l10">
+                <div id="paragraphs" class="section scrollspy">
+                    <p>Appending Paragraphs</p>
+                </div>
+
+                <div id="drawing1" class="section scrollspy">
+                    <p>Drawing Divs 1</p>
+                </div>
+
+                <div id="drawing2" class="section scrollspy">
+                    <p>Drawing Divs 2</p>
+                </div>
+            </div>
+            <div class="col hide-on-small-only m3 l2">
+                <ul class="section table-of-contents">
+                    <li><a href="#paragraphs">Appending Paragraphs</a></li>
+                    <li><a href="#drawing1">Drawing Divs 1</a></li>
+                    <li><a href="#drawing2">Drawing Divs 2</a></li>
+                </ul>
+            </div>
+        </div>
+
+            <!--Import jQuery before materialize.js-->
+            <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+            <script type="text/javascript" src="js/materialize.min.js"></script>
+            <script>
+
+            var dataset = [ 5, 10, 15, 20, 25 ];
+
+            d3.select("#paragraphs").selectAll("p")
             .data(dataset)
             .enter()
             .append("p")
@@ -26,9 +57,9 @@
                 } else {
                     return "black";
                 }
-            }); */
+            })
 
-            d3.select("body").selectAll("div")
+            d3.select("#drawing1").selectAll("div")
             .data(dataset)
             .enter()
             .append("div")
@@ -36,15 +67,22 @@
             .style("height", function(d) {
                 var barHeight = d * 5;  //Scale up by factor of 5
                 return barHeight + "px";
-            })
-            .style("color", function(d) {
-                if (d > 15) {   //Threshold of 15
-                    return "red";
-                } else {
-                    return "black";
-                }
+            });
+
+            var dataset = [ 25, 7, 5, 26, 11, 8, 25, 14, 23, 19,
+                14, 11, 22, 29, 11, 13, 12, 17, 18, 10,
+                24, 18, 25, 9, 3 ];
+
+            d3.select("#drawing2").selectAll("div")
+            .data(dataset)
+            .enter()
+            .append("div")
+            .attr("class", "bar")
+            .style("height", function(d) {
+                var barHeight = d * 5;  //Scale up by factor of 5
+                return barHeight + "px";
             });
 
         </script>
     </body>
-</html>
+<h/html>
