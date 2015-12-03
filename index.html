@@ -30,6 +30,9 @@
                 <div id="randomdata" class="section scrollspy">
                     <p>Random Data</p>
                 </div>
+                <div id="shapes" class="section scrollspy">
+                    <p>Data driven Shapes</p>
+                </div>
             </div>
             <div class="col hide-on-small-only m3 l2">
                 <ul class="section table-of-contents">
@@ -37,6 +40,7 @@
                     <li><a href="#drawing">Drawing Divs</a></li>
                     <li><a href="#powerdata">The Power of Data</a></li>
                     <li><a href="#randomdata">Random Data</a></li>
+                    <li><a href="#shapes">Data driven Shapes</a></li>
                 </ul>
             </div>
         </div>
@@ -118,7 +122,32 @@
                 return barHeight + "px";
             });
 
-            var svg = d3.select("body").append("svg");
+            // Data driven Shapes
+
+            //Width and height
+            var w = 500;
+            var h = 50;
+
+            var svg = d3.select("#shapes")
+                        .append("svg")
+                        .attr("width", w)
+                        .attr("height", h);
+
+            var dataset = [ 5, 10, 15, 20, 25 ];
+
+            var circles = svg.selectAll("circle")
+                             .data(dataset)
+                             .enter()
+                             .append("circle");
+
+            circles.attr("cx", function(d, i) {
+                            return (i * 50) + 25;
+                        })
+                    .attr("cy", h/2)
+                    .attr("r", function(d) {
+                        return d;
+                    });
+
 
         $(document).ready(function(){
         	$('.scrollspy').scrollSpy();
