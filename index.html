@@ -20,19 +20,23 @@
                     <p>Appending Paragraphs</p>
                 </div>
 
-                <div id="drawing1" class="section scrollspy">
-                    <p>Drawing Divs 1</p>
+                <div id="drawing" class="section scrollspy">
+                    <p>Drawing Divs</p>
                 </div>
 
-                <div id="drawing2" class="section scrollspy">
-                    <p>Drawing Divs 2</p>
+                <div id="powerdata" class="section scrollspy">
+                    <p>The Power of Data</p>
+                </div>
+                <div id="randomdata" class="section scrollspy">
+                    <p>Random Data</p>
                 </div>
             </div>
             <div class="col hide-on-small-only m3 l2">
                 <ul class="section table-of-contents">
                     <li><a href="#paragraphs">Appending Paragraphs</a></li>
-                    <li><a href="#drawing1">Drawing Divs 1</a></li>
-                    <li><a href="#drawing2">Drawing Divs 2</a></li>
+                    <li><a href="#drawing">Drawing Divs</a></li>
+                    <li><a href="#powerdata">The Power of Data</a></li>
+                    <li><a href="#randomdata">Random Data</a></li>
                 </ul>
             </div>
         </div>
@@ -59,7 +63,7 @@
                 }
             })
 
-            d3.select("#drawing1").selectAll("div")
+            d3.select("#drawing").selectAll("div")
             .data(dataset)
             .enter()
             .append("div")
@@ -73,7 +77,24 @@
                 14, 11, 22, 29, 11, 13, 12, 17, 18, 10,
                 24, 18, 25, 9, 3 ];
 
-            d3.select("#drawing2").selectAll("div")
+            d3.select("#powerdata").selectAll("div")
+            .data(dataset)
+            .enter()
+            .append("div")
+            .attr("class", "bar")
+            .style("height", function(d) {
+                var barHeight = d * 5;  //Scale up by factor of 5
+                return barHeight + "px";
+            });
+
+            var dataset = []; //Initialize empty array
+
+            for (var i = 0; i < 25; i++) {           //Loop 25 times
+                var newNumber = Math.random() * 30;  //New random number (0-30)
+                dataset.push(newNumber);             //Add new number to array
+            }
+
+            d3.select("#randomdata").selectAll("div")
             .data(dataset)
             .enter()
             .append("div")
