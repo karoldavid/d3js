@@ -53,6 +53,7 @@
              */
 
             // Appending Paragraphs
+
             var dataset = [ 5, 10, 15, 20, 25 ];
 
             d3.select("#paragraphs").selectAll("p")
@@ -70,6 +71,8 @@
                 }
             })
 
+            //Drawing Divs
+
             d3.select("#drawing").selectAll("div")
             .data(dataset)
             .enter()
@@ -79,6 +82,8 @@
                 var barHeight = d * 5;  //Scale up by factor of 5
                 return barHeight + "px";
             });
+
+            //The Power of Data
 
             var dataset = [ 25, 7, 5, 26, 11, 8, 25, 14, 23, 19,
                 14, 11, 22, 29, 11, 13, 12, 17, 18, 10,
@@ -93,6 +98,8 @@
                 var barHeight = d * 5;  //Scale up by factor of 5
                 return barHeight + "px";
             });
+
+            //Random Data
 
             var dataset = []; //Initialize empty array
 
