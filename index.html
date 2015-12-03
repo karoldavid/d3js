@@ -46,6 +46,13 @@
             <script type="text/javascript" src="js/materialize.min.js"></script>
             <script>
 
+            /**
+             * d3js Tutorial
+             * @credit Scott Murray http://alignedleft.com/tutorials/d3
+             *
+             */
+
+            // Appending Paragraphs
             var dataset = [ 5, 10, 15, 20, 25 ];
 
             d3.select("#paragraphs").selectAll("p")
@@ -103,6 +110,8 @@
                 var barHeight = d * 5;  //Scale up by factor of 5
                 return barHeight + "px";
             });
+
+            var svg = d3.select("body").append("svg");
 
         $(document).ready(function(){
         	$('.scrollspy').scrollSpy();
