@@ -36,6 +36,9 @@
                 <div id="prettycolors" class="section scrollspy">
                     <p>Pretty Colors</p>
                 </div>
+                <div id="colorbars" class="section scrollspy">
+                    <p>Color Bars</p>
+                </div>
             </div>
             <div class="col hide-on-small-only m3 l2">
                 <ul class="section table-of-contents">
@@ -45,6 +48,7 @@
                     <li><a href="#randomdata">Random Data</a></li>
                     <li><a href="#shapes">Data driven Shapes</a></li>
                     <li><a href="#prettycolors">Pretty Colors</a></li>
+                    <li><a href="#colorbars">Color Bars</a></li>
                 </ul>
             </div>
         </div>
@@ -183,6 +187,37 @@
             	       return d/2;
                     });
 
+            // Color Bars
+
+            var dataset = [ 5, 10, 13, 19, 21, 25, 22, 18, 15, 13,
+                11, 12, 15, 20, 18, 17, 16, 18, 23, 25 ];
+
+            //Width and height
+            var w = 500;
+            var h = 50;
+
+            var svg = d3.select("#colorbars")
+                        .append("svg")
+                        .attr("width", w)
+                        .attr("height", h);
+
+            svg.selectAll("rect")
+               .data(dataset)
+               .enter()
+               .append("rect")
+               .attr("x", function(d, i) {
+                   return i * (w / dataset.length);
+               })
+               .attr("y", function(d) {
+                   return h - d;  //Height minus data value
+               })
+               .attr("width", 20)
+               .attr("height", function(d) {
+                   return d*4;
+               })
+               .attr("fill", function(d) {
+                    return "rgb(0, 0, " + (d * 10) + ")";
+               });
 
         $(document).ready(function(){
         	$('.scrollspy').scrollSpy();
