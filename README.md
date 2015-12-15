@@ -1,7 +1,7 @@
 # My D3js Playground
 
 Here is a link to the live version:
-http://alignedleft.com/tutorials/d3
+http://karoldavid.github.io/d3js/
 
 ## Frameworks and Libraries
 
