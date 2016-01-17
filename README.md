@@ -16,4 +16,6 @@ Learning D3JS
 
 Scott Murray's d3 tutorials http://alignedleft.com/tutorials/d3/
 
-## Email me at k.zysk@zoho.com
+## Questions? 
+
+Email me at k.zysk@zoho.com
